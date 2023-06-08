@@ -14,6 +14,8 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
+                <th scope="col">Type</th>
+
                 <th scope="col">Content</th>
                 <th scope="col">Action</th>
             </tr>
@@ -23,6 +25,8 @@
                 <tr>
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
+                    <td>{{ $project->type?->name }}</td>
+
                     <td>{{ $project->content }}</td>
                     <td>
 

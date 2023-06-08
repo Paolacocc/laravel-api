@@ -26,7 +26,8 @@ class StoreProjectRequest extends FormRequest
         return [
             'title' => 'required',
             'content' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'type_id' => 'nullable'
         ];
     }
 }
