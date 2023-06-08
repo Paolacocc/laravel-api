@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2>Projects list</h2>
+    <h2 class="text-center m-3 text-uppercase">Projects list</h2>
 
     @include('partials.delete_message')
 
     <div class="text-end">
-        <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Create a new project</a>
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-success m-3">Create a new project</a>
     </div>
 
     <table class="table">
@@ -29,7 +29,7 @@
                       <div class="action-btn d-flex">
 
                         {{-- create --}}
-                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-success m-1">
+                        <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-info m-1">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                         {{-- edit --}}
