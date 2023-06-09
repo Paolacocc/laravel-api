@@ -5,9 +5,9 @@
 <h2 class='text-center'>{{ $project->title}}</h2>
 
 @if ($project->type)
-<h4>Type: {{ $project->type?->name }}</h4>
+<h5>Type: {{ $project->type?->name }}</h5>
 @else 
-<h4> Type: no type has been selected</h4>
+<h5> Type: no type has been selected</h5>
 @endif
 
 <div class="mt-3">

@@ -13,7 +13,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="type">Type</label>
+            <label for="type">Select type:</label>
             <select class="form-select" id="type" name="type_id">
                 <option value=""></option>
                 @foreach ($types as $type)
@@ -21,12 +21,27 @@
                 @endforeach
             </select>
         </div>
+
+        <div class="mb-3">
+            <h5>Select technologies:</h5>
+            @foreach ($technologies as $tech)
+                <div class="form-check">
+                    {{-- L'input deve essere selezionato se id del tag è contenuto nell'array old(['tags'])--}}
+                    <input class="form-check-input" name="technologies[]" type="checkbox" value="{{ $tech->id }}"
+                        id="tag-{{ $tech->id }}" @checked(in_array($tech->id, old('technologies',[])))>
+                    <label class="form-check-label" for="tag-{{ $tech->id }}">
+                        {{ $tech->name }}
+                    </label>
+                </div>
+            @endforeach
+        </div>
+
         <div class="mb-3">
             <label for="content" class="form-label">Content</label>
             <textarea class="form-control" id="content" rows="3" name="content">{{ old('content') }}</textarea>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Content</label>
+            <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" rows="3" name="description">{{ old('description') }}</textarea>
         </div>
         <button class="btn btn-primary" type="submit">Send</button>
