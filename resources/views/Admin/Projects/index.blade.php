@@ -25,6 +25,7 @@
                 <tr>
                     <th scope="row">{{ $project->id }}</th>
                     <td>{{ $project->title }}</td>
+                    {{-- qui stai facendo join su un solo controller --}}
                     <td>{{ $project->type?->name }}</td>
 
                     <td>{{ $project->content }}</td>

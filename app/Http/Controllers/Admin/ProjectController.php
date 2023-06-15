@@ -11,6 +11,8 @@ use App\Models\Technology;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProjectController extends Controller
 {
@@ -47,7 +49,14 @@ class ProjectController extends Controller
     {
         $data = $request->validated();
         $data['slug'] = Str::slug($data['title']);
+       
+        if ($request->hasFile('image')) {
+            $path = Storage::disk('public')->put('project_images', $request->image);
+            $data['image'] = $path;
+        }
+
         $project = Project::create($data);
+
 
         if ($request->has('technologies')) {
             // Inserimento nella tabella ponte

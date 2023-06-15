@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\projectController;
+use App\Http\Controllers\Api\projectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +16,4 @@ use App\Http\Controllers\Admin\projectController;
 */
 
 Route::get('projects', [projectController::class, 'index']);
+Route::get('projects/{slug}', [ProjectController::class, 'show']);
